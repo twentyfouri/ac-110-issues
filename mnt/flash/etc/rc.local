@@ -1,0 +1,13 @@
+#!/bin/sh
+
+export LD_LIBRARY_PATH=/mnt/flash/vienna/lib:/mnt/flash/vienna/lib/vienna:$LD_LIBRARY_PATH
+
+#mount_as_tmpfs /etc
+
+cd /mnt/flash/vienna/drivers/
+sh driver.sh
+/mnt/flash/ac100/add_mdev_rule.sh &
+wpa_supplicant -Dwext -iwlan0 -c/mnt/flash/etc/wpa.conf -B
+udhcpc -iwlan0 -b
+
+/mnt/flash/ac100/start.sh

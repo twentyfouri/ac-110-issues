@@ -1,0 +1,144 @@
+/*
+ *  tutuConfig
+ * 
+ */
+ 
+/* Params to Init ---------------------------------------------------------- */
+TUTUCLEARCONFIG_00			    1		
+TUTUCLEARCONFIG_01			    10		
+TUTUCLEARCONFIG_02			    1		
+TUTUCLEARCONFIG_03			    30 		
+
+/* Params to SetParams ----------------------------------------------------- */
+TUTUCLEARPARAM_00				0      
+TUTUCLEARPARAM_01				11584
+TUTUCLEARPARAM_02				1
+TUTUCLEARPARAM_03				0
+TUTUCLEARPARAM_04                               0
+TUTUCLEARPARAM_05                               0
+
+/* Params to AEC ----------------------------------------------------------- */
+TUTUAECPARAM_00					0
+TUTUAECPARAM_01					0
+TUTUAECPARAM_02					0
+TUTUAECPARAM_03					0
+TUTUAECPARAM_04					0
+TUTUAECPARAM_05					0
+TUTUAECPARAM_06					0
+TUTUAECPARAM_07					0
+
+/* Params to NS ------------------------------------------------------------ */
+TUTUNSPARAM_00					32440
+TUTUNSPARAM_01					1	 
+TUTUNSPARAM_02					4096	
+
+/* Params to EQ ------------------------------------------------------------ */
+TUTUEQPARAM_00					0
+TUTUEQPARAM_01					50 
+TUTUEQPARAM_02					100 
+TUTUEQPARAM_03					1850 
+TUTUEQPARAM_04					2000 
+TUTUEQPARAM_05					500 
+TUTUEQPARAM_06					500 
+TUTUEQPARAM_07					500 
+TUTUEQPARAM_08					500 
+TUTUEQPARAM_09					500 
+TUTUEQPARAM_10					500 
+TUTUEQPARAM_11					500 
+TUTUEQPARAM_12					500 
+TUTUEQPARAM_13					500 
+TUTUEQPARAM_14					500 
+TUTUEQPARAM_15					500 
+TUTUEQPARAM_16					-24 
+TUTUEQPARAM_17					-12
+TUTUEQPARAM_18					0 
+TUTUEQPARAM_19					-3 
+TUTUEQPARAM_20					0
+TUTUEQPARAM_21					0
+TUTUEQPARAM_22					0
+TUTUEQPARAM_23					0
+TUTUEQPARAM_24					0
+TUTUEQPARAM_25					0
+TUTUEQPARAM_26					0
+TUTUEQPARAM_27					0
+TUTUEQPARAM_28					0
+TUTUEQPARAM_29					0
+TUTUEQPARAM_30					0
+TUTUEQPARAM_31					0
+
+/* Params to DRC ----------------------------------------------------------- */
+TUTUDRCPARAM_00			       -96
+TUTUDRCPARAM_01			       -96
+TUTUDRCPARAM_02				   3
+TUTUDRCPARAM_03	               -12
+TUTUDRCPARAM_04	               -8
+TUTUDRCPARAM_05	               -4
+TUTUDRCPARAM_06	               0
+TUTUDRCPARAM_07	               -12
+TUTUDRCPARAM_08 	           -9
+TUTUDRCPARAM_09 	           -8
+TUTUDRCPARAM_10 	           -7
+TUTUDRCPARAM_11				   5
+TUTUDRCPARAM_12				   10
+TUTUDRCPARAM_13				   256 
+
+/* Params to AGC ----------------------------------------------------------- */
+TUTUAGCCPARAM_00			   -9
+TUTUAGCCPARAM_01			   2048
+TUTUAGCCPARAM_02			   32
+TUTUAGCCPARAM_03			   16384
+
+/* Params to SC ------------------------------------------------------------ */
+TUTUSCPARAM_00				   16384
+TUTUSCPARAM_01				   16384
+TUTUSCPARAM_02				   0
+TUTUSCPARAM_03				   0
+TUTUSCPARAM_SP                 10
+
+/* Param to DOA ------------------------------------------------------------ */
+TUTUDOAPARAM_00         40
+TUTUDOAPARAM_01         0
+TUTUDOAPARAM_02         0
+TUTUDOAPARAM_03         0
+TUTUDOAPARAM_04         0
+TUTUDOAPARAM_05         0
+TUTUDOAPARAM_06         0
+TUTUDOAPARAM_07         0
+TUTUDOAPARAM_08         0
+TUTUDOAPARAM_09         0
+TUTUDOAPARAM_10         0
+TUTUDOAPARAM_11         0
+TUTUDOAPARAM_12         0
+TUTUDOAPARAM_13         0
+TUTUDOAPARAM_14         0
+TUTUDOAPARAM_15         0
+TUTUDOAPARAM_16         16
+TUTUDOAPARAM_17         0
+TUTUDOAPARAM_18         0
+TUTUDOAPARAM_19         0
+TUTUDOAPARAM_20         0
+TUTUDOAPARAM_21         0
+TUTUDOAPARAM_22         0
+TUTUDOAPARAM_23         0
+TUTUDOAPARAM_24         0
+TUTUDOAPARAM_25         0
+TUTUDOAPARAM_26         0
+TUTUDOAPARAM_27         0
+TUTUDOAPARAM_28         0
+TUTUDOAPARAM_29         0
+TUTUDOAPARAM_30         0
+TUTUDOAPARAM_31         0
+
+/* Params to REF ----------------------------------------------------------- */
+TUTUREFPARAM_00				   2182
+TUTUREFPARAM_01				   0
+TUTUREFPARAM_02				   0 
+TUTUREFPARAM_03				   6 
+TUTUREFPARAM_04				   100
+TUTUREFPARAM_05				   100
+
+/* Params to CNG ----------------------------------------------------------- */
+TUTUCNGPARAM_00				   300
+TUTUCNGPARAM_01				   1
+TUTUCNGPARAM_02				   3000 
+TUTUCNGPARAM_03				   16384 
