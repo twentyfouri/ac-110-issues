@@ -32,11 +32,18 @@ if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   exit 1
 fi
 
-# Require a tag that points to HEAD.
+# Prefer an exact tag on HEAD; if missing, ask user to input one.
 TAG="$(git describe --tags --exact-match 2>/dev/null || true)"
 if [[ -z "$TAG" ]]; then
-  echo "Error: current HEAD has no exact git tag." >&2
-  exit 1
+  read -rp "Current HEAD has no exact git tag. Enter version/tag to use: " TAG
+  if [[ -z "$TAG" ]]; then
+    echo "Error: version/tag cannot be empty." >&2
+    exit 1
+  fi
+  if [[ ! "$TAG" =~ ^[A-Za-z0-9._-]+$ ]]; then
+    echo "Error: invalid version/tag '$TAG'. Use only letters, numbers, dot, underscore, and dash." >&2
+    exit 1
+  fi
 fi
 
 if [[ ! -d "mnt/flash/ac100" ]]; then
