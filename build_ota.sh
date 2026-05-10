@@ -80,7 +80,10 @@ for path in "${REQUIRED_PATHS[@]}"; do
 done
 
 OUTPUT="ac110-${TAG}.tar"
-UPLOAD_FILE="${OUTPUT}.xz"
+INNER_FILE="${OUTPUT}.xz"
+OTA_DIR="ota-${TAG}"
+OTA_TAR="${OTA_DIR}.tar"
+UPLOAD_FILE="${OTA_TAR}.xz"
 FTP_HOST="ota.twentyfouri.net"
 FTP_USER="lance"
 FTP_PASSWORD="${FTP_PASSWORD:-}"
@@ -90,6 +93,34 @@ tar cf "$OUTPUT" -C mnt flash/ac100
 
 echo "Compressing ${OUTPUT} with xz while keeping original tar ..."
 xz -zkf "$OUTPUT"
+
+if [[ -d "$OTA_DIR" ]]; then
+  echo "Removing existing directory: ${OTA_DIR}"
+  rm -rf "$OTA_DIR"
+fi
+
+echo "Creating OTA bundle directory: ${OTA_DIR}"
+mkdir -p "$OTA_DIR"
+cp "$INNER_FILE" "$OTA_DIR/"
+
+cat > "$OTA_DIR/list.txt" <<EOF
+{
+  "version": "${TAG}",
+  "auto": false,
+  "whitelist": [],
+  "rootfs": "",
+  "model": "",
+  "file": "${INNER_FILE}"
+}
+EOF
+
+echo "Setting file ownership and mode in ${OTA_DIR} ..."
+find "$OTA_DIR" -type f -exec chown root:root {} \;
+find "$OTA_DIR" -type f -exec chmod 644 {} \;
+
+echo "Packing ${OTA_DIR} into ${UPLOAD_FILE} ..."
+tar cf "$OTA_TAR" "$OTA_DIR"
+xz -zkf "$OTA_TAR"
 
 if [[ "$UPLOAD_OTA" -eq 1 ]]; then
   if ! command -v curl >/dev/null 2>&1; then
@@ -104,7 +135,7 @@ if [[ "$UPLOAD_OTA" -eq 1 ]]; then
 
   echo "Uploading ${UPLOAD_FILE} to ftp://${FTP_HOST}/ ..."
   curl --fail --ftp-create-dirs --user "${FTP_USER}:${FTP_PASSWORD}" -T "$UPLOAD_FILE" "ftp://${FTP_HOST}/${UPLOAD_FILE}"
-  echo "Done: ${OUTPUT}, ${UPLOAD_FILE}, and FTP upload completed"
+  echo "Done: ${OUTPUT}, ${INNER_FILE}, ${UPLOAD_FILE}, and FTP upload completed"
 else
-  echo "Done: ${OUTPUT}, ${UPLOAD_FILE} (upload skipped)"
+  echo "Done: ${OUTPUT}, ${INNER_FILE}, ${UPLOAD_FILE} (upload skipped)"
 fi
