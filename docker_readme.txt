@@ -1,4 +1,6 @@
 1. 建立 docker image
+copy vtcs_toolchain_64bit.tar.gz
+
 docker build --platform linux/amd64 -t x86-compiler-env .
 
 2. 建 volume

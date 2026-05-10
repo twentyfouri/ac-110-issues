@@ -67,7 +67,8 @@ get_network_time() {
         # This format is generally more robust for 'date -s' parsing than the default 'date -u' output.
         current_utc=$(date -u '+%Y-%m-%d %H:%M:%S') 
         echo "$current_utc" > "$UTC_TIME_LOG"
-	hwclock -w
+        echo ntp=1 >> /tmp/system.ini
+	    hwclock -w
         log_message "Network time synchronized and saved to $UTC_TIME_LOG"
         return 0
     else
@@ -140,6 +141,8 @@ main() {
             log_message "Successfully synchronized time from network."
             script_exit_status=0 # Network synchronization successful, set final status to success
         fi
+    else
+        log_message "No network connectivity."
     fi
 
     log_message "Final system time after synchronization attempt:"
