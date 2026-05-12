@@ -66,7 +66,7 @@ else
     umount "$SD_MOUNT_PATH_TMP"
 
     if [ -n "$APP_PID" ]; then
-        kill -45 "$APP_PID"
+        #kill -45 "$APP_PID"
         echo "[auto_sd.sh] Sent SIGRTMIN+1 (remove) to $APP_NAME (PID=$APP_PID)" >> "$LOG_FILE"
     else
         echo "[auto_sd.sh] $APP_NAME not running. Signal not sent." >> "$LOG_FILE"

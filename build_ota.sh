@@ -63,7 +63,9 @@ get_mode() {
 REQUIRED_PATHS=(
   "mnt/flash/ac100/p2p"
   "mnt/flash/ac100/kp_firmware_host_stream_custom_app_security"
-  "mnt/flash/ac100/nfsmount.sh"
+  "mnt/flash/ac100/mount_nfs.sh"
+  "mnt/flash/ac100/auto_sd.sh"
+  "mnt/flash/ac100/time_sync.sh"
 )
 
 for path in "${REQUIRED_PATHS[@]}"; do
