@@ -38,8 +38,6 @@ if [ -f /mnt/flash/etc/p2p.ini.new ]; then
     echo -e "\e[33m[start.sh] Found backup file\e[m"
     mv /mnt/flash/etc/p2p.ini.new /mnt/flash/etc/p2p.ini
 fi
-./p2p &
-sleep 1
 
 #shutdown flooding "Reset NPU"
 echo "6 4 1 7" > /proc/sys/kernel/printk
@@ -73,5 +71,9 @@ while true; do
     sleep 1
 done
 ./playback_example_mmap -d "default" -r 8000 -C 4 -R aenc_srb_2 -c 1 -D
+./p2p &
+#./recorder -v venc_srb_2 -f /tmp/venc/c0/command.fifo@1 -a aenc_srb_1 -F /tmp/aenc/c0/command.fifo -o /mnt/sd -d
 ./auto_sd.sh
+#after vrec, or blocked
+echo /tmp/venc/c0/command.fifo encoder2 start >> /tmp/fifosend
 ) &
